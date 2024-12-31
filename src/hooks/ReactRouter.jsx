@@ -11,6 +11,10 @@ import AddBlog from "../pages/AddBlog";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Feature from "../pages/Feature";
 import Wishlist from "../pages/Wishlist";
+// import BlogCard from "../components/BlogCard";
+import AllBlogCards from "../components/AllBlogCards";
+import SingleBlog from "../components/SingleBlog";
+import UpdateBlog from "../pages/UpdateBlog";
 
   const router = createBrowserRouter([
     {
@@ -31,15 +35,34 @@ import Wishlist from "../pages/Wishlist";
         },
         {
           path: '/all-blogs',
-          element: <AllBlogs></AllBlogs>
+          element: <AllBlogs></AllBlogs>,
+
+          children: [
+            {
+              path: '/all-blogs',
+              element: <AllBlogCards></AllBlogCards>,
+              loader: ()=> fetch('http://localhost:5000/blogs'),
+            },
+            {
+              path: '/all-blogs/:id',
+              element: <SingleBlog></SingleBlog>,
+              loader: ({params})=> fetch(`http://localhost:5000/blogs/${params.id}`),
+            }
+          ]
         },
         {
           path: '/add-blog',
           element: <PrivateRoute><AddBlog></AddBlog></PrivateRoute>
         },
         {
+          path: '/update-blog/:id',
+          element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
+          loader: ({params})=> fetch(`http://localhost:5000/blogs/${params.id}`),
+        },
+        {
           path: '/feature',
-          element: <Feature></Feature>
+          element: <Feature></Feature>,
+          loader:()=> fetch('http://localhost:5000/blogs/data/10')
         },
         {
           path: '/wishlist',

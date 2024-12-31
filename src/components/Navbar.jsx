@@ -5,19 +5,7 @@ import AuthContainer from "../authContext/Auth/AuthContainer";
 
 function Navbar() {
   const { currentUser, handleSignOut } = AuthContainer();
-  // console.log(currentUser?.email);
 
-//  const handleLogout = ()=>{
-//     handleSignOut()
-//     .then(()=>{
-//       console.log('sign out successfull');
-      
-//     })
-//     .catch(error => {
-//       toast.error(error);
-//     } )
-//   }
-  
   const navLinks = (
     <>
       <li>
@@ -36,14 +24,16 @@ function Navbar() {
           All Blogs
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to={"/add-blog"}
-          className={`navlinks ${({ isActive }) => (isActive ? "" : "")}`}
-        >
-          Add Blog
-        </NavLink>
-      </li>
+      {currentUser && currentUser?.email && (
+        <li>
+          <NavLink
+            to={"/add-blog"}
+            className={`navlinks ${({ isActive }) => (isActive ? "" : "")}`}
+          >
+            Add Blog
+          </NavLink>
+        </li>
+      )}
       <li>
         <NavLink
           to={"/feature"}
@@ -52,14 +42,16 @@ function Navbar() {
           Feature
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to={"/wishlist"}
-          className={`navlinks ${({ isActive }) => (isActive ? "" : "")}`}
-        >
-          Wishlist
-        </NavLink>
-      </li>
+      {currentUser && currentUser?.email && (
+        <li>
+          <NavLink
+            to={"/wishlist"}
+            className={`navlinks ${({ isActive }) => (isActive ? "" : "")}`}
+          >
+            Wishlist
+          </NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -101,17 +93,28 @@ function Navbar() {
         <div className="navbar-end">
           {currentUser && currentUser?.email ? (
             <>
-              <div className="me-2 tooltip tooltip-bottom cursor-pointer" data-tip={currentUser?.displayName}>
+              <div
+                className="me-2 tooltip tooltip-bottom cursor-pointer"
+                data-tip={currentUser?.displayName}
+              >
                 <div className="w-12 h-12 rounded-full overflow-hidden border">
-                <img src={currentUser?.photoURL} alt="user image" className="object-cover object-center"/>
+                  <img
+                    src={currentUser?.photoURL}
+                    alt="user image"
+                    className="object-cover object-center"
+                  />
                 </div>
               </div>
               <div>
-                <button onClick={()=> handleSignOut()}
-                className="btn bg-red-500 
+                <button
+                  onClick={() => handleSignOut()}
+                  className="btn bg-red-500 
                 text-white 
                 hover:bg-red-600
-                hover:border-red-600 ">Log Out</button>
+                hover:border-red-600 "
+                >
+                  Log Out
+                </button>
               </div>
             </>
           ) : (

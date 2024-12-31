@@ -1,63 +1,65 @@
-import axios from "axios";
-import AuthContainer from "../authContext/Auth/AuthContainer";
-import { useNavigate } from "react-router-dom";
 import moment from "moment";
+import AuthContainer from "../authContext/Auth/AuthContainer";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import axios from "axios";
 
-function AddBlog() {
-  const { currentUser } = AuthContainer();
-  const categories = [
-    "Technology",
-    "Health",
-    "Business",
-    "Lifestyle",
-    "Education",
-  ];
-  const navigate = useNavigate();
 
-  //  console.log(date);
+function UpdateBlog() {
+    const blogData = useLoaderData();
+    const {_id, title, imageURL, category, shortDescription, longDescription } = blogData;
+    const { currentUser } = AuthContainer();
+    const navigate = useNavigate();
+    const categories = [
+      "Technology",
+      "Health",
+      "Business",
+      "Lifestyle",
+      "Education",
+    ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const handleUpdate = (e) =>{
+         e.preventDefault();
+        
+            const form = e.target;
+        
+            const title = form.title.value;
+            const imageURL = form.imageUrl.value;
+            const category = form.category.value;
+            const shortDescription = form.shortDescription.value;
+            const longDescription = form.longDescription.value;
+            const userName = currentUser?.displayName;
+            const userEmail = currentUser?.email;
+            const userPhoto = currentUser?.photoURL;
+        
+            // generate the date
+            const createdAt = moment().format("MMMM Do YYYY");
 
-    const form = e.target;
+            const blog = {
+                title,
+                imageURL,
+                category,
+                shortDescription,
+                longDescription,
+                userName,
+                userEmail,
+                userPhoto,
+                createdAt,
+              };
 
-    const title = form.title.value;
-    const imageURL = form.imageUrl.value;
-    const category = form.category.value;
-    const shortDescription = form.shortDescription.value;
-    const longDescription = form.longDescription.value;
-    const userName = currentUser?.displayName;
-    const userEmail = currentUser?.email;
-    const userPhoto = currentUser?.photoURL;
-
-    // generate the date
-    const createdAt = moment().format("MMMM Do YYYY");
-
-    const blog = {
-      title,
-      imageURL,
-      category,
-      shortDescription,
-      longDescription,
-      userName,
-      userEmail,
-      userPhoto,
-      createdAt,
-    };
-
-    axios.post("http://localhost:5000/blogs", blog).then((res) => {
-      console.log(res.data);
-      const result = res.data;
-      if (result.insertedId) {
-        navigate("/");
-      }
-    });
-  };
+              axios.put(`http://localhost:5000/blogs/${_id}`, blog)
+              .then(res =>{
+                console.log(res.data);
+                const result = res.data;
+                if(result.modifiedCount>0){
+                    navigate(`/all-blogs/${_id}`)
+                }
+              })
+    }
 
   return (
     <div className="max-w-3xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
-      <h2 className="text-2xl font-bold mb-6 text-center">Create a Blog</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className="text-2xl font-bold mb-6 text-center">Update The Blog</h2>
+      <form onSubmit={handleUpdate}>
         {/* Title */}
         <div className="mb-4">
           <label
@@ -72,6 +74,7 @@ function AddBlog() {
             id="title"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             placeholder="Enter blog title"
+            defaultValue={title}
             required
           />
         </div>
@@ -90,6 +93,7 @@ function AddBlog() {
             id="imageUrl"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             placeholder="Enter image URL"
+            defaultValue={imageURL}
             required
           />
         </div>
@@ -106,6 +110,7 @@ function AddBlog() {
             name="category"
             id="category"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md "
+            defaultValue={category}
             required
           >
             <option value="">Select Category</option>
@@ -135,6 +140,7 @@ function AddBlog() {
             rows="2"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             placeholder="Write a short description"
+            defaultValue={shortDescription}
             required
           ></textarea>
         </div>
@@ -153,6 +159,7 @@ function AddBlog() {
             rows="4"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             placeholder="Write the full blog content"
+            defaultValue={longDescription}
             required
           ></textarea>
         </div>
@@ -222,7 +229,7 @@ function AddBlog() {
         </div>
       </form>
     </div>
-  );
+  )
 }
 
-export default AddBlog;
+export default UpdateBlog

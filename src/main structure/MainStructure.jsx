@@ -9,7 +9,7 @@ function MainStructure() {
       <Navbar></Navbar>
 
       {/* outlet */}
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto p-4">
         <Outlet></Outlet>
       </div>
 
