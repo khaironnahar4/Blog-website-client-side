@@ -41,12 +41,12 @@ import UpdateBlog from "../pages/UpdateBlog";
             {
               path: '/all-blogs',
               element: <AllBlogCards></AllBlogCards>,
-              loader: ()=> fetch('http://localhost:5000/blogs'),
+              loader: ()=> fetch('https://bloggin-site-three.vercel.app/blogs'),
             },
             {
               path: '/all-blogs/:id',
               element: <SingleBlog></SingleBlog>,
-              loader: ({params})=> fetch(`http://localhost:5000/blogs/${params.id}`),
+              loader: ({params})=> fetch(`https://bloggin-site-three.vercel.app/blogs/${params.id}`),
             }
           ]
         },
@@ -57,12 +57,12 @@ import UpdateBlog from "../pages/UpdateBlog";
         {
           path: '/update-blog/:id',
           element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/blogs/${params.id}`),
+          loader: ({params})=> fetch(`https://bloggin-site-three.vercel.app/blogs/${params.id}`),
         },
         {
           path: '/feature',
           element: <Feature></Feature>,
-          loader:()=> fetch('http://localhost:5000/blogs/data/10')
+          loader:()=> fetch('https://bloggin-site-three.vercel.app/blogs/data/10')
         },
         {
           path: '/wishlist',

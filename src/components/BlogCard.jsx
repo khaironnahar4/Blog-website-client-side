@@ -13,7 +13,7 @@ function BlogCard({ blog }) {
     
     const data = {_id, title, imageURL, category, shortDescription, userEmail};
 
-    axios.post('http://localhost:5000/wishlist', data)
+    axios.post('https://bloggin-site-three.vercel.app/wishlist', data)
     .then(res =>{
         const data = res.data;
         // console.log(data);

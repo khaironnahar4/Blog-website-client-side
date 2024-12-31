@@ -45,7 +45,7 @@ function AddBlog() {
       createdAt,
     };
 
-    axios.post("http://localhost:5000/blogs", blog).then((res) => {
+    axios.post("https://bloggin-site-three.vercel.app/blogs", blog).then((res) => {
       console.log(res.data);
       const result = res.data;
       if (result.insertedId) {

@@ -46,7 +46,7 @@ function UpdateBlog() {
                 createdAt,
               };
 
-              axios.put(`http://localhost:5000/blogs/${_id}`, blog)
+              axios.put(`https://bloggin-site-three.vercel.app/blogs/${_id}`, blog)
               .then(res =>{
                 console.log(res.data);
                 const result = res.data;

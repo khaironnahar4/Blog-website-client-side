@@ -8,7 +8,7 @@ import TopPost from "../components/TopPost";
 function Home() {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/blogs/data/6").then((res) => {
+    axios.get("https://bloggin-site-three.vercel.app/blogs/data/6").then((res) => {
       const datas = res.data;
       // console.log(blogs);
       setBlogs(datas);

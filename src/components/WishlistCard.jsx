@@ -6,7 +6,7 @@ function WishlistCard({data, handleDeleteWishList}) {
     const {_id, title, imageURL, category, shortDescription, userEmail} = data;
 
     // const handleDeleteWishList = ()=>{
-    //     axios.delete(`http://localhost:5000/wishlist?id=${_id}&&email=${userEmail}`)
+    //     axios.delete(`https://bloggin-site-three.vercel.app/wishlist?id=${_id}&&email=${userEmail}`)
     //     .then(res =>{
     //         console.log(res.data);
             

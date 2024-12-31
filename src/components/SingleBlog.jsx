@@ -32,7 +32,7 @@ function SingleBlog() {
       userEmail,
     };
 
-    axios.post("http://localhost:5000/wishlist", data).then((res) => {
+    axios.post("https://bloggin-site-three.vercel.app/wishlist", data).then((res) => {
       const data = res.data;
       // console.log(data);
       if (data.insertedId) {
@@ -59,7 +59,7 @@ function SingleBlog() {
       return toast.error("You can not comment on your own blog.");
     }
 
-    axios.post("http://localhost:5000/comment", commentData).then((res) => {
+    axios.post("https://bloggin-site-three.vercel.app/comment", commentData).then((res) => {
       // console.log(res.data);
       toast.success(res.data.message);
     });
@@ -72,7 +72,7 @@ function SingleBlog() {
   // read comments
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/comment/${_id}`).then((res) => {
+    axios.get(`https://bloggin-site-three.vercel.app/comment/${_id}`).then((res) => {
       console.log(res.data);
       setComments(res.data);
     });

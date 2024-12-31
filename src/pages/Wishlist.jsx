@@ -12,7 +12,7 @@ function Wishlist() {
   // console.log(email);
   
   useEffect(()=>{
-    axios(`http://localhost:5000/wishlist/${email}`)
+    axios(`https://bloggin-site-three.vercel.app/wishlist/${email}`)
     .then(res =>{
       // console.log(res.data);
       setWishlist(res.data);  
@@ -20,7 +20,7 @@ function Wishlist() {
   } ,[email])
 
   const handleDeleteWishList = (_id, userEmail)=>{
-    axios.delete(`http://localhost:5000/wishlist?id=${_id}&&email=${userEmail}`)
+    axios.delete(`https://bloggin-site-three.vercel.app/wishlist?id=${_id}&&email=${userEmail}`)
     .then(res =>{
         if(res.data.deletedCount>0){
           toast.success("Deleted successfully!!");
