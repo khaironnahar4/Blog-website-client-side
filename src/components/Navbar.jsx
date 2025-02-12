@@ -168,7 +168,7 @@ function Navbar({theme, setTheme}) {
           )}
           <div>
             <button onClick={()=> theme === "dark" ? setTheme("light") : setTheme("dark")} 
-            className="text-2xl p-3 ms-2 border rounded-full bg-gray-800 text-white bg-white">
+            className="sm:text-2xl text-xl sm:p-3 p-2 ms-2 border rounded-full bg-gray-800 text-white">
               {
                 theme === "dark" ? <FaSun /> : <FaRegMoon />
               }
