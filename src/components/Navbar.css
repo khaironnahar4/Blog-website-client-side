@@ -4,6 +4,7 @@
     margin: 0 2px;
     transition: 0.2s;
 }
+
 .navlinks:hover{
     border: 1px solid #ef4444;
     color: white;

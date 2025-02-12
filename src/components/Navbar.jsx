@@ -3,15 +3,16 @@ import "./Navbar.css";
 import AuthContainer from "../authContext/Auth/AuthContainer";
 // import { toast } from "react-toastify";
 
-function Navbar() {
+function Navbar({theme, setTheme}) {
   const { currentUser, handleSignOut } = AuthContainer();
+  
 
   const navLinks = (
     <>
       <li>
         <NavLink
           to={"/"}
-          className={`navlinks ${({ isActive }) => (isActive ? "active" : "")}`}
+          className={`navlinks dark:bg-gray-800 dark:sm:border-white dark:border-none ${({ isActive }) => (isActive ? "active" : "")}`}
         >
           Home
         </NavLink>
@@ -19,7 +20,7 @@ function Navbar() {
       <li>
         <NavLink
           to={"/all-blogs"}
-          className={`navlinks ${({ isActive }) => (isActive ? "" : "")}`}
+          className={`navlinks dark:bg-gray-800 dark:sm:border-white dark:border-none ${({ isActive }) => (isActive ? "" : "")}`}
         >
           All Blogs
         </NavLink>
@@ -28,7 +29,7 @@ function Navbar() {
         <li>
           <NavLink
             to={"/add-blog"}
-            className={`navlinks ${({ isActive }) => (isActive ? "" : "")}`}
+            className={`navlinks dark:bg-gray-800 dark:sm:border-white dark:border-none ${({ isActive }) => (isActive ? "" : "")}`}
           >
             Add Blog
           </NavLink>
@@ -37,26 +38,51 @@ function Navbar() {
       <li>
         <NavLink
           to={"/feature"}
-          className={`navlinks ${({ isActive }) => (isActive ? "" : "")}`}
+          className={`navlinks dark:bg-gray-800 dark:sm:border-white dark:border-none ${({ isActive }) => (isActive ? "" : "")}`}
         >
           Feature
         </NavLink>
       </li>
-      {currentUser && currentUser?.email && (
+      {currentUser && currentUser?.email ? (
+        <>
+          <li>
+            <NavLink
+              to={"/wishlist"}
+              className={`navlinks dark:bg-gray-800 dark:sm:border-white dark:border-none ${({ isActive }) => (isActive ? "" : "")}`}
+            >
+              Wishlist
+            </NavLink>
+          </li>
+          <li>
+            <button
+              onClick={() => handleSignOut()}
+              className="hover:bg-red-600
+                hover:border-red-600 
+                flex sm:hidden 
+                dark:bg-gray-800 dark:border-white"
+            >
+              Log Out
+            </button>
+          </li>
+        </>
+      ) : (
         <li>
-          <NavLink
-            to={"/wishlist"}
-            className={`navlinks ${({ isActive }) => (isActive ? "" : "")}`}
+          <Link
+            to={"/signin"}
+            className="sm:hidden flex py-2 px-2 rounded-md
+                hover:bg-red-600
+                hover:border-red-600 
+                dark:bg-gray-800 dark:border-white"
           >
-            Wishlist
-          </NavLink>
+            Sign in
+          </Link>
         </li>
       )}
     </>
   );
 
   return (
-    <div className="py-4 border border-b-gray-300">
+    <div className="sm:py-4 border border-b-gray-300 dark:border-gray-900 fixed z-10 w-full bg-white dark:bg-gray-800 top-0">
       <div className="navbar max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -78,12 +104,12 @@ function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-white dark:bg-gray-800 rounded-box z-[1] mt-0 w-52 h-screen p-2 shadow"
             >
               {navLinks}
             </ul>
           </div>
-          <a className="text-3xl font-bold">
+          <a className="sm:text-3xl text-xl font-bold">
             Blog<span className="text-red-600">Sphere</span>
           </a>
         </div>
@@ -97,7 +123,7 @@ function Navbar() {
                 className="me-2 tooltip tooltip-bottom cursor-pointer"
                 data-tip={currentUser?.displayName}
               >
-                <div className="w-12 h-12 rounded-full overflow-hidden border">
+                <div className="sm:w-12 w-10 sm:h-12 h-10 rounded-full overflow-hidden border">
                   <img
                     src={currentUser?.photoURL}
                     alt="user image"
@@ -111,7 +137,8 @@ function Navbar() {
                   className="btn bg-red-500 
                 text-white 
                 hover:bg-red-600
-                hover:border-red-600 "
+                hover:border-red-600 
+                sm:flex hidden"
                 >
                   Log Out
                 </button>
@@ -121,7 +148,7 @@ function Navbar() {
             <>
               <Link
                 to={"/signin"}
-                className="btn bg-red-500 
+                className="sm:btn sm:flex hidden bg-red-500 
                 text-white 
                 hover:bg-red-600
                 hover:border-red-600 "
@@ -130,14 +157,22 @@ function Navbar() {
               </Link>
               <Link
                 to={"/signup"}
-                className="btn ms-2 bg-white
-              text-red-500 border border-red-500
+                className="sm:btn py-2 px-2 rounded-md ms-2 sm:bg-white bg-red-500 
+              sm:text-red-500 text-white border border-red-500
               hover:bg-red-600 hover:text-white"
               >
                 Register
               </Link>
             </>
           )}
+          <div>
+            <button onClick={()=> theme === "dark" ? setTheme("light") : setTheme("dark")} 
+            className="btn">
+              {
+                theme ? 'Light' : "Dark"
+              }
+            </button>
+          </div>
         </div>
       </div>
     </div>

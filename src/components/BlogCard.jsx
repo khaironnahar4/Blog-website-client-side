@@ -26,7 +26,7 @@ function BlogCard({ blog }) {
   }
 
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl max-w-4xl mx-auto mt-8">
+    <div className="card lg:card-side bg-base-100 dark:bg-gray-700 shadow-xl max-w-4xl mx-auto mt-8">
       {/* Image Section */}
       <div className="lg:w-1/3 h-[250px] m-2 rounded-lg overflow-hidden">
         <img
@@ -40,14 +40,14 @@ function BlogCard({ blog }) {
         {/* Category Tag */}
         <div className="badge badge-error font-bold uppercase">{category}</div>
         {/* Author and Date */}
-        <div className="text-gray-500 text-sm mt-2">
+        <div className="text-gray-500 dark:text-gray-300 text-sm mt-2">
           <span>By {userName}</span>
           <span className="ml-2">• {createdAt}</span>
         </div>
         {/* Title */}
         <h2 className="card-title mt-4 text-lg font-bold">{title}</h2>
         {/* Description */}
-        <p className="text-gray-600 text-sm mt-2">{shortDescription}</p>
+        <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">{shortDescription}</p>
 
         <div className="flex justify-start items-center gap-2">
             {/* detail button */}

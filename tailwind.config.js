@@ -11,5 +11,6 @@ export default {
   plugins: [
     daisyui,
   ],
+  darkMode: 'class',
 }
 

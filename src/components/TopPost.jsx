@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function TopPost({ blog }) {
   const { _id, userName, createdAt, title, imageURL } = blog;
   return (
-    <div className="flex gap-4 items-start p-4 border border-gray-300 rounded-lg shadow-md mt-4">
+    <div className="flex gap-4 items-start p-4 border border-gray-300 dark:bg-gray-700 rounded-lg shadow-md mt-4">
       {/* Image Section */}
       <img
         src={imageURL}
@@ -14,14 +14,14 @@ function TopPost({ blog }) {
       {/* Content Section */}
       <div className="flex flex-col">
         {/* Author and Date */}
-        <div className="text-sm text-gray-500">
+        <div className="text-sm text-gray-500 dark:text-gray-300">
           <span className="text-red-500 font-bold">By {userName}</span>
           <span className="ml-4">{createdAt}</span>
         </div>
 
         {/* Post Title */}
         <Link to={`/all-blogs/${_id}`}>
-          <h3 className="text-lg font-semibold text-black hover:text-red-500 transition duration-300">
+          <h3 className="text-lg font-semibold text-black dark:text-white hover:text-red-500 transition duration-300">
             {title}
           </h3>
         </Link>

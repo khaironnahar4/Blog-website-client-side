@@ -9,7 +9,7 @@ import {
 
 function Footer() {
   return (
-    <footer className="bg-black text-white py-8 mt-24">
+    <footer className="bg-black text-white py-8 lg:mt-24 md:mt-16 sm:mt-12 mt-10 px-4 lg:px-2">
       <div className="max-w-7xl mx-auto container grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
         {/* World Section */}
         <div>
@@ -70,7 +70,7 @@ function Footer() {
             Blog<span className="text-red-500">Sphere</span>
           </h2>
           <p className="mt-2 text-gray-400 text-sm">
-            Copyright © 2024 Bloging Website
+            Copyright © 2025 Bloging Website
           </p>
         </div>
         <div className="mt-4 md:mt-0 flex space-x-4 justify-center md:justify-start">
