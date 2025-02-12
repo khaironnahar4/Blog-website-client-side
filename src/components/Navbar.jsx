@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import AuthContainer from "../authContext/Auth/AuthContainer";
+import { FaRegMoon, FaSun } from "react-icons/fa";
 // import { toast } from "react-toastify";
 
 function Navbar({theme, setTheme}) {
@@ -148,8 +149,8 @@ function Navbar({theme, setTheme}) {
             <>
               <Link
                 to={"/signin"}
-                className="sm:btn sm:flex hidden bg-red-500 
-                text-white 
+                className="sm:btn sm:flex hidden sm:bg-red-500  
+                sm:text-white 
                 hover:bg-red-600
                 hover:border-red-600 "
               >
@@ -167,9 +168,9 @@ function Navbar({theme, setTheme}) {
           )}
           <div>
             <button onClick={()=> theme === "dark" ? setTheme("light") : setTheme("dark")} 
-            className="btn">
+            className="text-2xl p-3 ms-2 border rounded-full bg-gray-800 text-white bg-white">
               {
-                theme ? 'Light' : "Dark"
+                theme === "dark" ? <FaSun /> : <FaRegMoon />
               }
             </button>
           </div>
