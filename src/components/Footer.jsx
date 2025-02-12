@@ -9,7 +9,7 @@ import {
 
 function Footer() {
   return (
-    <footer className="bg-black text-white py-8 lg:mt-24 md:mt-16 sm:mt-12 mt-10 px-4 lg:px-2">
+    <footer className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-8 lg:mt-24 md:mt-16 sm:mt-12 mt-10 px-4 lg:px-2">
       <div className="max-w-7xl mx-auto container grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
         {/* World Section */}
         <div>
@@ -63,13 +63,13 @@ function Footer() {
       </div>
 
       {/* Bottom Section */}
-      <div className="mt-8 border-t border-gray-700">
+      <div className="mt-8 border-t dark:border-gray-600 border-gray-500">
       <div className="max-w-7xl mx-auto pt-4 text-center md:text-left md:flex justify-between items-center">
         <div>
           <h2 className="text-xl font-bold">
             Blog<span className="text-red-500">Sphere</span>
           </h2>
-          <p className="mt-2 text-gray-400 text-sm">
+          <p className="mt-2 text-gray-800 dark:text-gray-400 text-sm">
             Copyright © 2025 Bloging Website
           </p>
         </div>

@@ -62,7 +62,7 @@ function Registration() {
     }
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-md bg-white shadow-md rounded-lg p-6 border border-gray-100">
+      <div className="w-full max-w-md bg-white dark:bg-gray-700 shadow-md rounded-lg p-6 border border-gray-100">
         <h2 className="text-2xl font-bold text-center mb-6">Sign up</h2>
 
         {/* Username and Password */}
@@ -74,7 +74,7 @@ function Registration() {
             <input
               type="text"
               name="name"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+              className="w-full dark:bg-gray-800 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
               required
             />
           </div>
@@ -86,7 +86,7 @@ function Registration() {
             <input
               type="email"
               name="email"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+              className="w-full dark:bg-gray-800 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
               required
             />
           </div>
@@ -98,7 +98,7 @@ function Registration() {
             <input
               type="password"
               name="password"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+              className="w-full dark:bg-gray-800 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
               required
             />
           </div>
@@ -110,7 +110,7 @@ function Registration() {
             <input
               type="text"
               name="image"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+              className="w-full dark:bg-gray-800 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
               required
             />
           </div>
@@ -118,8 +118,8 @@ function Registration() {
           {/* terms and conditions */}
           <div className="form-control">
             <label className="label cursor-pointer flex justify-start gap-2">
-              <input type="checkbox" ref={checkRef} className="checkbox h-5 w-5 rounded-full"/>
-              <span className="label-text">I accept all <span className="text-red-600">terms and conditions.</span></span>
+              <input type="checkbox" ref={checkRef} className="checkbox h-5 w-5 dark:bg-gray-800 rounded-full"/>
+              <span className="label-text dark:text-gray-300">I accept all <span className="text-red-600">terms and conditions.</span></span>
             </label>
           </div>
 
@@ -133,7 +133,7 @@ function Registration() {
         </form>
 
         {/* Sign in Link */}
-        <p className="text-center text-gray-600 mt-4">
+        <p className="text-center text-gray-600 dark:text-gray-300 mt-4">
           Already have an account?{" "}
           <a href="/signin" className="text-blue-600 hover:underline">
             Sign in

@@ -32,7 +32,7 @@ function MainStructure() {
       <Navbar theme={theme} setTheme={setTheme}></Navbar>
 
       {/* outlet */}
-      <div className="max-w-7xl mx-auto p-4 sm:mt-[86px] mt-12">
+      <div className="max-w-7xl mx-auto p-4 sm:mt-[78px] mt-12">
         <Outlet></Outlet>
       </div>
 

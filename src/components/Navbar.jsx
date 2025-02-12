@@ -82,7 +82,7 @@ function Navbar({theme, setTheme}) {
   );
 
   return (
-    <div className="sm:py-4 border border-b-gray-300 dark:border-gray-900 fixed z-10 w-full bg-white dark:bg-gray-800 top-0">
+    <div className="sm:py-3 border border-b-gray-300 dark:border-gray-900 fixed z-10 w-full bg-white dark:bg-gray-700 top-0">
       <div className="navbar max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">

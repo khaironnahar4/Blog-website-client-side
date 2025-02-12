@@ -43,7 +43,8 @@ function Home() {
           </div>
 
           {/* newslater */}
-          <div className="flex flex-col justify-center items-center lg:mt-24 md:mt-16 sm:mt-12 mt-10 border border-gray-200 shadow-md lg:py-36 sm:py-24 py-20 px-4">
+          <div className="flex flex-col justify-center items-center 
+          lg:mt-24 md:mt-16 sm:mt-12 mt-10 border border-gray-200 shadow-md lg:py-36 sm:py-24 py-20 px-4 dark:bg-gray-700">
             <h1 className="sm:text-4xl text-3xl font-bold">Newsletter</h1>
             <h2 className="font-semibold text-center">The most important world news and events of the day.</h2>
             <p className="text-gray-500">Get daily news letter in your inbox</p>

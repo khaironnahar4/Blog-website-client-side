@@ -49,7 +49,7 @@ function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-    <div className="w-full max-w-md bg-white shadow-md rounded-lg p-6 border border-gray-100">
+    <div className="w-full max-w-md bg-white dark:bg-gray-700 shadow-md rounded-lg p-6 border border-gray-100">
       <h2 className="text-2xl font-bold text-center mb-6">Sign in</h2>
       
       {/* Social Login Buttons */}
@@ -64,7 +64,7 @@ function Login() {
       </div>
       
       {/* Divider */}
-      <div className="my-4 text-center text-gray-500">OR</div>
+      <div className="my-4 text-center text dark:text-gray-300-gray-500">OR</div>
       
       {/* Username and Password */}
       <form onSubmit={handleForm} className="space-y-4">
@@ -72,18 +72,18 @@ function Login() {
           type="email"
           name="email"
           placeholder="Email"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+          className="w-full px-4 py-2 border dark:bg-gray-800 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
         />
         <input
           type="password"
           name="password"
           placeholder="Password"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+          className="w-full px-4 py-2 border dark:bg-gray-800 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
         />
         
         {/* Remember Me & Forgot Password */}
-        <div className="flex items-center justify-between">
-          <label className="flex items-center text-gray-600">
+        <div className="flex flex-col sm:flex-row items-center justify-between">
+          <label className="flex items-center text-gray-600 dark:text-gray-300">
             <input type="checkbox" className="form-checkbox mr-2" />
             Remember me
           </label>
@@ -102,7 +102,7 @@ function Login() {
       </form>
       
       {/* Sign Up Link */}
-      <p className="text-center text-gray-600 mt-4">
+      <p className="text-center text-gray-600 dark:text-gray-300 mt-4">
         Dont have an account?{" "}
         <a href="/signup" className="text-blue-600 hover:underline">
           Sign up

@@ -25,7 +25,7 @@ function Feature() {
             {/* row  */}
             {
               datas.map((data, idx)=> (
-                <tr className="hover:bg-base-200" key={data._id}>
+                <tr className="hover:bg-base-200 dark:hover:bg-gray-700" key={data._id}>
                 <th>{idx+1}</th>
                 <td>{data.title}</td>
                 <td>{data.userName}</td>

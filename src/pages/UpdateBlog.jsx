@@ -57,7 +57,7 @@ function UpdateBlog() {
     }
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white dark:bg-gray-700 shadow-lg rounded-lg">
       <h2 className="text-2xl font-bold mb-6 text-center">Update The Blog</h2>
       <form onSubmit={handleUpdate}>
         {/* Title */}
@@ -83,7 +83,7 @@ function UpdateBlog() {
         <div className="mb-4">
           <label
             htmlFor="imageUrl"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Image URL
           </label>
@@ -91,7 +91,7 @@ function UpdateBlog() {
             type="text"
             name="imageUrl"
             id="imageUrl"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             placeholder="Enter image URL"
             defaultValue={imageURL}
             required
@@ -102,14 +102,14 @@ function UpdateBlog() {
         <div className="mb-4">
           <label
             htmlFor="category"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Category
           </label>
           <select
             name="category"
             id="category"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md "
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md "
             defaultValue={category}
             required
           >
@@ -130,7 +130,7 @@ function UpdateBlog() {
         <div className="mb-4">
           <label
             htmlFor="shortDescription"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Short Description
           </label>
@@ -138,7 +138,7 @@ function UpdateBlog() {
             name="shortDescription"
             id="shortDescription"
             rows="2"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             placeholder="Write a short description"
             defaultValue={shortDescription}
             required
@@ -149,7 +149,7 @@ function UpdateBlog() {
         <div className="mb-4">
           <label
             htmlFor="longDescription"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Long Description
           </label>
@@ -157,7 +157,7 @@ function UpdateBlog() {
             name="longDescription"
             id="longDescription"
             rows="4"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             placeholder="Write the full blog content"
             defaultValue={longDescription}
             required
@@ -168,7 +168,7 @@ function UpdateBlog() {
         <div className="mb-4">
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Name
           </label>
@@ -176,7 +176,7 @@ function UpdateBlog() {
             type="text"
             name="name"
             id="name"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             readOnly
             value={currentUser.displayName}
           />
@@ -186,7 +186,7 @@ function UpdateBlog() {
         <div className="mb-4">
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Email
           </label>
@@ -194,7 +194,7 @@ function UpdateBlog() {
             type="text"
             name="email"
             id="email"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             readOnly
             value={currentUser.email}
           />
@@ -204,7 +204,7 @@ function UpdateBlog() {
         <div className="mb-4">
           <label
             htmlFor="photo"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Photo
           </label>
@@ -212,7 +212,7 @@ function UpdateBlog() {
             type="text"
             name="photo"
             id="photo"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             readOnly
             value={currentUser.photoURL}
           />

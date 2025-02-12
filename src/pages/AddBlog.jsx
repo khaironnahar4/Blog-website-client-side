@@ -55,14 +55,14 @@ function AddBlog() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white dark:bg-gray-700 shadow-lg rounded-lg">
       <h2 className="text-2xl font-bold mb-6 text-center">Create a Blog</h2>
       <form onSubmit={handleSubmit}>
         {/* Title */}
         <div className="mb-4">
           <label
             htmlFor="title"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Blog Title
           </label>
@@ -70,7 +70,7 @@ function AddBlog() {
             type="text"
             name="title"
             id="title"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             placeholder="Enter blog title"
             required
           />
@@ -80,7 +80,7 @@ function AddBlog() {
         <div className="mb-4">
           <label
             htmlFor="imageUrl"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Image URL
           </label>
@@ -88,7 +88,7 @@ function AddBlog() {
             type="text"
             name="imageUrl"
             id="imageUrl"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             placeholder="Enter image URL"
             required
           />
@@ -98,14 +98,14 @@ function AddBlog() {
         <div className="mb-4">
           <label
             htmlFor="category"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Category
           </label>
           <select
             name="category"
             id="category"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md "
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md "
             required
           >
             <option value="">Select Category</option>
@@ -125,7 +125,7 @@ function AddBlog() {
         <div className="mb-4">
           <label
             htmlFor="shortDescription"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Short Description
           </label>
@@ -133,7 +133,7 @@ function AddBlog() {
             name="shortDescription"
             id="shortDescription"
             rows="2"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             placeholder="Write a short description"
             required
           ></textarea>
@@ -143,7 +143,7 @@ function AddBlog() {
         <div className="mb-4">
           <label
             htmlFor="longDescription"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Long Description
           </label>
@@ -151,7 +151,7 @@ function AddBlog() {
             name="longDescription"
             id="longDescription"
             rows="4"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             placeholder="Write the full blog content"
             required
           ></textarea>
@@ -161,7 +161,7 @@ function AddBlog() {
         <div className="mb-4">
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             Name
           </label>
@@ -169,7 +169,7 @@ function AddBlog() {
             type="text"
             name="name"
             id="name"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             readOnly
             value={currentUser.displayName}
           />
@@ -187,7 +187,7 @@ function AddBlog() {
             type="text"
             name="email"
             id="email"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             readOnly
             value={currentUser.email}
           />
@@ -205,7 +205,7 @@ function AddBlog() {
             type="text"
             name="photo"
             id="photo"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+            className="mt-1 block w-full dark:bg-gray-800 p-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
             readOnly
             value={currentUser.photoURL}
           />
